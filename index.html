@@ -7,201 +7,196 @@
 <title>System Strike</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-    background:#0b0f14;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
+body {
+  background: #080c12;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-nav{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#111827;
-    padding:20px;
-    text-align:center;
-    border-bottom:1px solid #222;
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #0f1720;
+  border-bottom: 1px solid #1f2a36;
+  padding: 18px;
+  text-align: center;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 20px;
-    font-weight:bold;
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 18px;
 }
 
-nav a:hover{
-    color:#00d4ff;
+nav a:hover {
+  color: #00d9ff;
 }
 
-.hero-banner{
-    width:100%;
-    display:block;
+.hero-banner {
+  width: 100%;
+  display: block;
 }
 
-.logo{
-    width:250px;
-    display:block;
-    margin:40px auto;
+.logo {
+  width: 260px;
+  display: block;
+  margin: 40px auto 20px;
 }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:60px 20px;
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 20px;
 }
 
-h1{
-    text-align:center;
-    margin-bottom:20px;
-    font-size:3rem;
+h1, h2 {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:30px;
+h1 {
+  font-size: 42px;
 }
 
-p{
-    line-height:1.8;
-    text-align:center;
-    max-width:900px;
-    margin:auto;
+h2 {
+  font-size: 32px;
+  color: #00d9ff;
 }
 
-.character-row{
-    display:flex;
-    gap:30px;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin-top:40px;
+p {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 18px;
 }
 
-.character-row img{
-    width:45%;
-    min-width:300px;
-    border-radius:12px;
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 35px;
 }
 
-.feature-image{
-    width:100%;
-    max-width:1000px;
-    display:block;
-    margin:30px auto;
-    border-radius:12px;
+.character-grid img,
+.feature-image {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid #1f2a36;
+  background: #111827;
 }
 
-footer{
-    padding:50px;
-    text-align:center;
-    border-top:1px solid #222;
-    margin-top:60px;
+.feature-image {
+  max-width: 1000px;
+  display: block;
+  margin: 35px auto;
 }
 
+footer {
+  border-top: 1px solid #1f2a36;
+  text-align: center;
+  padding: 40px 20px;
+  color: #b7c2cf;
+}
+
+@media (max-width: 800px) {
+  nav a {
+    display: inline-block;
+    margin: 8px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    width: 200px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#characters">Characters</a>
-    <a href="#moves">Moves</a>
-    <a href="#finishers">Finishers</a>
+  <a href="#about">About</a>
+  <a href="#characters">Characters</a>
+  <a href="#moves">Moves</a>
+  <a href="#finishers">Finishers</a>
 </nav>
 
-<img src="images/ss_banner.png" class="hero-banner">
+<header>
+  <img class="hero-banner" src="images/ss_banner.png" alt="System Strike Banner">
+  <img class="logo" src="images/sys_strike_logo.png" alt="System Strike Logo">
 
-<img src="images/sys_strike_logo.png" class="logo">
-
-<div class="container">
-
+  <section>
     <h1>The IT & Cybersecurity Fighting Game Universe</h1>
-
     <p>
-        System Strike is an original entertainment IP where IT support,
-        networking, infrastructure, cybersecurity, and threat actors are
-        transformed into larger-than-life arcade fighting game characters.
-        Every fighter, move, finisher, and stage is inspired by real-world
-        technology concepts.
+      System Strike is an original entertainment IP where IT support,
+      networking, infrastructure, cybersecurity, and threat actors are
+      transformed into larger-than-life arcade fighting game characters.
     </p>
+  </section>
+</header>
 
-</div>
-
-<section id="about" class="container">
-
-    <h2>About System Strike</h2>
-
-    <p>
-        From Desktop Support and DNS to Botnet and Phishing,
-        System Strike brings the worlds of IT operations and
-        cybersecurity together in a character-driven fighting
-        game universe designed for entertainment, education,
-        and storytelling.
-    </p>
-
+<section id="about">
+  <h2>About</h2>
+  <p>
+    System Strike turns real-world technology concepts into fighters,
+    special moves, stages, and finishers. Support teams, network systems,
+    security defenders, and threat actors battle for control of the digital world.
+  </p>
 </section>
 
-<section id="characters" class="container">
+<section id="characters">
+  <h2>Characters</h2>
 
-    <h2>Featured Characters</h2>
-
-    <div class="character-row">
-
-        <img src="images/ss_it_operations.png">
-
-        <img src="images/ss_ransomware.png">
-
-    </div>
-
+  <div class="character-grid">
+    <img src="images/ss_botnet.png" alt="Botnet Character">
+    <img src="images/ss_phishing.png" alt="Phishing Character">
+  </div>
 </section>
 
-<section id="moves" class="container">
+<section id="moves">
+  <h2>Moves</h2>
 
-    <h2>Featured Move</h2>
+  <img class="feature-image" src="images/action_ddos_attack.png" alt="DDoS Attack Move">
 
-    <img src="images/action_ddos_attack.png" class="feature-image">
-
-    <p>
-        DDoS Attack demonstrates how a botnet overwhelms a target
-        with massive amounts of traffic, degrading service
-        availability and network performance.
-    </p>
-
+  <p>
+    Moves in System Strike are based on real IT and cybersecurity concepts,
+    turning abstract technical ideas into clear visual combat moments.
+  </p>
 </section>
 
-<section id="finishers" class="container">
+<section id="finishers">
+  <h2>Finishers</h2>
 
-    <h2>Featured Finisher</h2>
+  <img class="feature-image" src="images/finisher_key_rotation.png" alt="Key Rotation Finisher">
 
-    <img src="images/finisher_chronic_failure.png" class="feature-image">
-
-    <p>
-        Every System Strike battle ends with catastrophic system
-        collapse. When System Integrity reaches zero, only one
-        outcome remains:
-        <strong>SYSTEM FAILURE</strong>
-    </p>
-
+  <p>
+    When System Integrity reaches zero, the battle ends in total collapse:
+    <strong>SYSTEM FAILURE.</strong>
+  </p>
 </section>
 
 <footer>
-
-    <p>
-        © 2026 System Strike
-    </p>
-
+  <p>© 2026 System Strike</p>
 </footer>
 
 </body>
