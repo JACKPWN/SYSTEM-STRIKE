@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>System Strike</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b0f14;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#111827;
+    padding:20px;
+    text-align:center;
+    border-bottom:1px solid #222;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#00d4ff;
+}
+
+.hero-banner{
+    width:100%;
+    display:block;
+}
+
+.logo{
+    width:250px;
+    display:block;
+    margin:40px auto;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:3rem;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+p{
+    line-height:1.8;
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
+
+.character-row{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.character-row img{
+    width:45%;
+    min-width:300px;
+    border-radius:12px;
+}
+
+.feature-image{
+    width:100%;
+    max-width:1000px;
+    display:block;
+    margin:30px auto;
+    border-radius:12px;
+}
+
+footer{
+    padding:50px;
+    text-align:center;
+    border-top:1px solid #222;
+    margin-top:60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#characters">Characters</a>
+    <a href="#moves">Moves</a>
+    <a href="#finishers">Finishers</a>
+</nav>
+
+<img src="images/ss_banner.png" class="hero-banner">
+
+<img src="images/sys_strike_logo.png" class="logo">
+
+<div class="container">
+
+    <h1>The IT & Cybersecurity Fighting Game Universe</h1>
+
+    <p>
+        System Strike is an original entertainment IP where IT support,
+        networking, infrastructure, cybersecurity, and threat actors are
+        transformed into larger-than-life arcade fighting game characters.
+        Every fighter, move, finisher, and stage is inspired by real-world
+        technology concepts.
+    </p>
+
+</div>
+
+<section id="about" class="container">
+
+    <h2>About System Strike</h2>
+
+    <p>
+        From Desktop Support and DNS to Botnet and Phishing,
+        System Strike brings the worlds of IT operations and
+        cybersecurity together in a character-driven fighting
+        game universe designed for entertainment, education,
+        and storytelling.
+    </p>
+
+</section>
+
+<section id="characters" class="container">
+
+    <h2>Featured Characters</h2>
+
+    <div class="character-row">
+
+        <img src="images/ss_it_operations.png">
+
+        <img src="images/ss_ransomware.png">
+
+    </div>
+
+</section>
+
+<section id="moves" class="container">
+
+    <h2>Featured Move</h2>
+
+    <img src="images/action_ddos_attack.png" class="feature-image">
+
+    <p>
+        DDoS Attack demonstrates how a botnet overwhelms a target
+        with massive amounts of traffic, degrading service
+        availability and network performance.
+    </p>
+
+</section>
+
+<section id="finishers" class="container">
+
+    <h2>Featured Finisher</h2>
+
+    <img src="images/finisher_chronic_failure.png" class="feature-image">
+
+    <p>
+        Every System Strike battle ends with catastrophic system
+        collapse. When System Integrity reaches zero, only one
+        outcome remains:
+        <strong>SYSTEM FAILURE</strong>
+    </p>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 System Strike
+    </p>
+
+</footer>
+
+</body>
+</html>
