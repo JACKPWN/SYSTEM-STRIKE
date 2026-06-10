@@ -88,15 +88,17 @@ h2 {
 
 p {
   font-family: 'Inter', sans-serif;
-  max-width: 900px;
+  max-width: 820px;
   margin: 0 auto;
   text-align: center;
-  line-height: 1.7;
+  line-height: 1.8;
   font-size: 18px;
+  letter-spacing: 0.1px;
+  text-wrap: pretty;
 }
 
 p + p {
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
 b {
@@ -145,6 +147,11 @@ b {
   box-shadow: 0 0 12px rgba(0, 217, 255, 0.7);
 }
 
+.subsection-title {
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+  
 footer {
   border-top: 1px solid #1f2a36;
   text-align: center;
@@ -211,19 +218,17 @@ footer p {
 <section id="about">
   <h2>ABOUT</h2>
 
-  <p>System Strike brings the digital world to life by turning everyday IT and cybersecurity problems into character-driven battles. On one side are the defenders: support teams, network systems, security tools, access controls, and analysts working to keep systems stable. On the other side are the attackers: malware, phishing, botnets, stolen credentials, insider threats, and system failures trying to break through.</p>
+  <p>System Strike brings the digital world to life by turning everyday IT and cybersecurity problems into character-driven battles. On one side are the defenders: support teams, network systems, security tools, access controls, and analysts working to keep systems stable. On the other side are the attackers: malware, phishing, botnets, stolen credentials, insider threats, and system failures trying to break&nbsp;through.</p>
 
   <p>Each fighter is built around how their real-world counterpart behaves. Attackers exploit weak points, flood networks, steal access, and disrupt operations. Defenders investigate alerts, block threats, restore services, contain damage, and recover control. Every move, HUD element, warning banner, and attack effect is designed to show what is happening inside the system while the fight unfolds on screen.</p>
 
   <p>The result is a visually immersive and educational game world where players can see how systems fail, how attackers strike, and how defenders respond.</p>
 
-  <h2>HEALTH METER & ENERGY</h2>
+  <h2 class="subsection-title">HEALTH METER & ENERGY</h2>
 
   <img class="hud-image" src="images/ss_hud_crop.png" alt="System Strike HUD">
 
-  <h2>HUD SYSTEM</h2>
-
-  <p>Every fighter begins each match with <b>100% System Integrity</b>, representing their overall stability, health, and ability to stay operational. As fighters take damage, their System Integrity degrades. When it reaches zero, the character enters <b>SYSTEM FAILURE</b> — System Strike’s version of the classic finishing-state moment.</p>
+  <p>Every fighter begins each match with <b>100% System Integrity</b>, representing their overall stability, health, and ability to stay operational. As fighters take damage, their System Integrity degrades. When it reaches zero, the character enters <b>SYSTEM FAILURE</b> - System Strike’s version of the classic finishing-state&nbsp;moment.</p>
 
   <p>The HUD also includes two power systems: <b>Data</b> and <b>Connection State</b>.</p>
 
@@ -241,7 +246,7 @@ footer p {
 
   <div class="character-grid">
     <img src="images/ss_network_infastructure.png" alt="Network Infastructure Character">
-    <img src="images/ss_quarantine.png" alt="YARA Zookeeper Character">
+    <img src="images/ss_mapping.png" alt="Threat Mapping Character">
   </div>
 </section>
 
