@@ -32,7 +32,13 @@ nav {
   z-index: 999;
   background: #0f1720;
   border-bottom: 1px solid #1f2a36;
-  padding: 18px;
+  padding: 14px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   text-align: center;
 }
 
@@ -42,7 +48,9 @@ nav a {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 0 18px;
+  font-size: 14px;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 nav a:hover {
@@ -106,45 +114,45 @@ b {
 }
 
 .section-subtitle {
-font-family: 'Orbitron', sans-serif;
-text-align: center;
-font-size: 22px;
-font-weight: 700;
-color: #ffffff;
-letter-spacing: 1px;
-margin: 5px auto 42px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin: 5px auto 42px;
 }
 
 .character-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 34px;
-max-width: 760px;
-margin: 35px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px;
+  max-width: 760px;
+  margin: 35px auto 0;
 }
 
 .character-card {
-width: 100%;
-max-width: 340px;
-margin: 0 auto;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
 }
 
 .character-card img {
-width: 100%;
-display: block;
-border-radius: 14px;
-border: 1px solid #1f2a36;
-background: #111827;
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid #1f2a36;
+  background: #111827;
 }
 
 .character-card h3 {
-font-family: 'Orbitron', sans-serif;
-color: #00d9ff;
-font-size: 18px;
-font-weight: 700;
-text-align: left;
-letter-spacing: 1px;
-margin-top: 12px;
+  font-family: 'Orbitron', sans-serif;
+  color: #00d9ff;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 1px;
+  margin-top: 12px;
 }
 
 .feature-image,
@@ -195,11 +203,17 @@ footer p {
 }
 
 @media (max-width: 800px) {
-.character-grid {
-grid-template-columns: 1fr;
-max-width: 380px;
-gap: 38px;
-}
+  nav {
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 6px;
+  }
+
+  nav a {
+    font-size: 10px;
+    letter-spacing: 0.3px;
+    margin: 0;
+  }
 
   h1 {
     font-size: 32px;
