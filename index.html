@@ -105,27 +105,56 @@ b {
   font-weight: 700;
 }
 
+.section-subtitle {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin: 5px auto 42px;
+}
+
 .character-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-top: 35px;
+  gap: 34px;
+  max-width: 780px;
+  margin: 35px auto 0;
 }
 
-.character-grid img,
-.feature-image,
-.hud-image {
+.character-card {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.character-card img {
   width: 100%;
+  display: block;
   border-radius: 14px;
   border: 1px solid #1f2a36;
   background: #111827;
 }
 
+.character-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00d9ff;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 1px;
+  margin-top: 12px;
+}
+
 .feature-image,
 .hud-image {
+  width: 100%;
   max-width: 1000px;
   display: block;
   margin: 35px auto;
+  border-radius: 14px;
+  border: 1px solid #1f2a36;
+  background: #111827;
 }
 
 .system-failure {
@@ -151,7 +180,7 @@ b {
   margin-top: 70px;
   margin-bottom: 30px;
 }
-  
+
 footer {
   border-top: 1px solid #1f2a36;
   text-align: center;
@@ -182,8 +211,22 @@ footer p {
     font-size: 16px;
   }
 
+  .section-subtitle {
+    font-size: 19px;
+  }
+
   .character-grid {
     grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 38px;
+  }
+
+  .character-card {
+    max-width: 360px;
+  }
+
+  .character-card h3 {
+    font-size: 16px;
   }
 
   .logo {
@@ -243,12 +286,31 @@ footer p {
   <h2>CHARACTERS</h2>
   <h3>Play from 30 Unique Characters</h3>
 
-  <div class="character-grid">
-    <img src="images/ss_network_infastructure.png" alt="Network Infastructure Character">
-  <h3>Network Infastructure</h3>
-    <img src="images/ss_mapping.png" alt="Threat Mapping Character">
-  <h3>The Threat Mapper</h3>  
-  </div>
+  <section id="characters">
+  <h2>CHARACTERS</h2>
+
+  <h3 class="section-subtitle">Play from 30 Unique Characters</h3>
+
+<div class="character-card">
+  <img src="images/ss_network_infastructure.png" alt="Network Infrastructure Character">
+  <h3>Network Infrastructure</h3>
+</div>
+
+<div class="character-card">
+  <img src="images/ss_mapping.png" alt="Threat Mapper Character">
+  <h3>The Threat Mapper</h3>
+</div>
+
+<div class="character-card">
+  <img src="images/ss_containment.png" alt="Containment Character">
+  <h3>Containment</h3>
+</div>
+
+<div class="character-card">
+  <img src="images/ss_field_tech.png" alt="Field Technician Character">
+  <h3>Field Technician</h3>
+</div>
+
 </section>
 
 <div class="divider"></div>
