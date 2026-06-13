@@ -1,372 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-<title>SYSTEM STRIKE</title>
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #080c12;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-}
-
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background: #0f1720;
-  border-bottom: 1px solid #1f2a36;
-  padding: 14px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  text-align: center;
-}
-
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 14px;
-  white-space: nowrap;
-  flex: 0 0 auto;
-}
-
-nav a:hover {
-  color: #00d9ff;
-}
-
-.hero-banner {
-  width: 100%;
-  display: block;
-}
-
-.logo {
-  width: 260px;
-  display: block;
-  margin: 40px auto 20px;
-  filter: invert(1);
-}
-
-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 70px 20px;
-}
-
-h1,
-h2 {
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-}
-
-h1 {
-  font-size: 42px;
-  font-weight: 800;
-}
-
-h2 {
-  font-size: 32px;
-  font-weight: 700;
-  color: #00d9ff;
-}
-
-p {
-  font-family: 'Inter', sans-serif;
-  max-width: 820px;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 1.8;
-  font-size: 18px;
-  letter-spacing: 0.1px;
-  text-wrap: pretty;
-}
-
-p + p {
-  margin-top: 24px;
-}
-
-b {
-  font-weight: 700;
-}
-
-.section-subtitle {
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 1px;
-  margin: 5px auto 42px;
-}
-
-.character-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 34px;
-  max-width: 760px;
-  margin: 35px auto 0;
-}
-
-.character-card {
-  width: 100%;
-  max-width: 340px;
-  margin: 0 auto;
-}
-
-.character-card img {
-  width: 100%;
-  display: block;
-  border-radius: 14px;
-  border: 1px solid #1f2a36;
-  background: #111827;
-}
-
-.character-card h3 {
-  font-family: 'Orbitron', sans-serif;
-  color: #00d9ff;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: left;
-  letter-spacing: 1px;
-  margin-top: 12px;
-}
-
-.feature-image,
-.hud-image {
-  width: 100%;
-  max-width: 1000px;
-  display: block;
-  margin: 35px auto;
-  border-radius: 14px;
-  border: 1px solid #1f2a36;
-  background: #111827;
-}
-
-.system-failure {
-  text-align: center;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  color: #ff3b3b;
-  letter-spacing: 2px;
-  margin-top: 20px;
-}
-
-.divider {
-  width: 120px;
-  height: 3px;
-  background: #00d9ff;
-  margin: 35px auto;
-  border-radius: 999px;
-  box-shadow: 0 0 12px rgba(0, 217, 255, 0.7);
-}
-
-.subsection-title {
-  margin-top: 70px;
-  margin-bottom: 30px;
-}
-
-footer {
-  border-top: 1px solid #1f2a36;
-  text-align: center;
-  padding: 40px 20px;
-  color: #b7c2cf;
-}
-
-footer p {
-  color: #b7c2cf;
-  font-size: 16px;
-}
-
-@media (max-width: 800px) {
-  nav {
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 6px;
-  }
-
-  nav a {
-    font-size: 10px;
-    letter-spacing: 0.3px;
-    margin: 0;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 26px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  .section-subtitle {
-    font-size: 19px;
-  }
-
-  .character-grid {
-    grid-template-columns: 1fr;
-    max-width: 380px;
-    gap: 38px;
-  }
-
-  .character-card {
-    max-width: 360px;
-  }
-
-  .character-card h3 {
-    font-size: 16px;
-  }
-
-  .logo {
-    width: 200px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="System Strike is an IT and cybersecurity fighting game universe where real-world systems, defenders, attackers, and threats become playable fighters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>SYSTEM STRIKE</title>
 </head>
-
 <body>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a class="brand-mark" href="#top" aria-label="System Strike home">SYSTEM STRIKE</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#characters">Characters</a>
+        <a href="#moves">Moves</a>
+        <a href="#finishers">Finishers</a>
+      </div>
+    </nav>
 
-<nav>
-  <a href="#about">ABOUT</a>
-  <a href="#characters">CHARACTERS</a>
-  <a href="#moves">MOVES</a>
-  <a href="#finishers">FINISHERS</a>
-</nav>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <img class="hero-image" src="images/ss_banner.png" alt="System Strike fighters facing off in a neon arcade cybersecurity battle">
+      <div class="hero-copy">
+        <p class="eyebrow">Real tech rendered as combat</p>
+        <h1 id="hero-title">The IT &amp; Cybersecurity Fighting Game Universe</h1>
+        <p>
+          Learning IT and cybersecurity can be a battle. System Strike turns real-world technology concepts into a fighting RPG where defenders, attackers, systems, and threats become playable characters. Created by Dom Calvello, the universe blends real-world technology with arcade-style combat, creating a visually immersive game world with an educational core.
+        </p>
+      </div>
+    </section>
+  </header>
 
-<header>
-  <img class="hero-banner" src="images/ss_banner.png" alt="System Strike Banner">
+  <main>
+    <section class="section section-card" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <p class="eyebrow">Defenders, attackers, systems, threats</p>
+        <h2 id="about-title">About</h2>
+      </div>
 
-  <section>
-    <h1>The IT & Cybersecurity Fighting Game Universe</h1>
-    <p>
-     Learning IT and cybersecurity can be a battle. System Strike turns real-world technology concepts into a fighting RPG where defenders, attackers, systems, and threats become playable characters. Created by Dom Calvello, the universe blends real-world technology with arcade-style combat, creating a visually immersive game world with an educational core.
-    </p>
-  </section>
-</header>
+      <div class="text-stack">
+        <p>
+          System Strike brings the digital world to life by turning everyday IT and cybersecurity problems into character-driven battles. On one side are the defenders: support teams, network systems, security tools, access controls, and analysts working to keep systems stable. On the other side are the attackers: malware, phishing, botnets, stolen credentials, insider threats, and system failures trying to break through.
+        </p>
+        <p>
+          Each fighter is built around how their real-world counterpart behaves. Every move, HUD element, warning banner, and attack effect is designed to show players how systems fail, how attackers strike, and how defenders respond.
+        </p>
+      </div>
+    </section>
 
-<div class="divider"></div>
-  
-<section id="about">
-  <h2>ABOUT</h2>
+    <section class="section split-section" aria-labelledby="hud-title">
+      <div class="section-heading align-left">
+        <p class="eyebrow">Match systems</p>
+        <h2 id="hud-title">Health Meter &amp; Energy</h2>
+      </div>
 
-  <p>System Strike brings the digital world to life by turning everyday IT and cybersecurity problems into character-driven battles. On one side are the defenders: support teams, network systems, security tools, access controls, and analysts working to keep systems stable. On the other side are the attackers: malware, phishing, botnets, stolen credentials, insider threats, and system failures trying to break&nbsp;through.</p>
+      <div class="media-panel wide">
+        <img src="images/ss_hud_crop.png" alt="System Strike HUD with system integrity, data, and connection state meters">
+      </div>
 
-  <p>Each fighter is built around how their real-world counterpart behaves. Every move, HUD element, warning banner, and attack effect is designed to show players how systems fail, how attackers strike, and how defenders respond.</p>
+      <div class="meter-grid" aria-label="Core combat meters">
+        <article class="info-card defender">
+          <h3>System Integrity</h3>
+          <p>Every fighter begins each match with <strong>100% System Integrity</strong>, representing their overall ability to stay operational. As fighters take damage, their <strong>System Integrity</strong> degrades. When it reaches zero, the character enters <strong>SYSTEM FAILURE</strong>.</p>
+        </article>
+        <article class="info-card attacker">
+          <h3>Data</h3>
+          <p><strong>Data</strong> powers a fighter's strongest abilities. Advanced attacks consume more Data, but deal heavier damage to the opponent's <strong>System Integrity</strong>.</p>
+        </article>
+        <article class="info-card system">
+          <h3>Connection State</h3>
+          <p><strong>Connection State</strong> gives fighters temporary defensive advantages, helping protect their <strong>System Integrity</strong> from incoming damage.</p>
+        </article>
+      </div>
 
-  <h2 class="subsection-title">HEALTH METER & ENERGY</h2>
+      <p class="closing-copy">
+        Together, System Integrity, Data, and Connection State form the core of System Strike’s gameplay. Each fighter uses these resources differently, creating unique mechanics, matchups, and move combinations based on their role in the digital world.
+      </p>
+    </section>
 
-  <img class="hud-image" src="images/ss_hud_crop.png" alt="System Strike HUD">
+    <section class="section" id="characters" aria-labelledby="characters-title">
+      <div class="section-heading">
+        <p class="eyebrow">Roster preview</p>
+        <h2 id="characters-title">Characters</h2>
+        <p class="section-intro">Play from 30 unique characters across infrastructure, support, security, and threat factions.</p>
+      </div>
 
-  <p>Every fighter begins each match with <b>100% System Integrity</b>, representing their overall ability to stay operational. As fighters take damage, their System Integrity degrades. When it reaches zero, the character enters <b>SYSTEM FAILURE</b> - System Strike’s version of the classic finishing-state&nbsp;moment.</p>
+      <div class="character-grid">
+        <article class="character-card defender">
+          <img src="images/ss_network_infastructure.png" alt="Network Infrastructure character portrait">
+          <div>
+            <p class="faction-label">Defender faction</p>
+            <h3>Network Infrastructure</h3>
+          </div>
+        </article>
 
-  <p>The HUD also includes two power systems: <b>Data</b> and <b>Connection State</b>.</p>
+        <article class="character-card system">
+          <img src="images/ss_mapping.png" alt="The Threat Mapper character portrait">
+          <div>
+            <p class="faction-label">Intel faction</p>
+            <h3>The Threat Mapper</h3>
+          </div>
+        </article>
 
-  <p><b>Data : </b>Data powers a fighter’s strongest abilities. Advanced attacks consume more Data, but deal heavier damage to the opponent’s System Integrity.</p>
+        <article class="character-card defender">
+          <img src="images/ss_containment.png" alt="Containment character portrait">
+          <div>
+            <p class="faction-label">Response faction</p>
+            <h3>Containment</h3>
+          </div>
+        </article>
 
-  <p><b>Connection State : </b>Higher Connection State gives fighters temporary defensive advantages, helping protect their System Integrity from incoming damage.</p>
+        <article class="character-card support">
+          <img src="images/ss_field_tech.png" alt="Field Technician character portrait">
+          <div>
+            <p class="faction-label">Support faction</p>
+            <h3>Field Technician</h3>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <p>Together, <b>System Integrity</b>, <b>Data</b>, and <b>Connection State</b> create a HUD that teaches core technology ideas through gameplay: systems must stay healthy, data must be protected and used wisely, and strong connections can determine whether a fighter survives or collapses.</p>
-</section>
+    <section class="section" id="moves" aria-labelledby="moves-title">
+      <div class="section-heading align-left">
+        <p class="eyebrow">Arcade attacks, real concepts</p>
+        <h2 id="moves-title">Moves</h2>
+      </div>
 
-<div class="divider"></div>
-  
-  <section id="characters">
-  <h2>CHARACTERS</h2>
+      <div class="feature-layout">
+        <figure class="media-panel">
+          <img src="images/action_phishing_spearphishing_move.png" alt="Spear Phishing move effect in System Strike">
+        </figure>
+        <div class="feature-copy">
+          <p>
+            Every move in <strong>System Strike</strong> transforms real-world concepts into fast-paced combat. Play as <strong>Phishing</strong> and unleash attacks such as <strong>Typosquatting</strong>, <strong>Whaling</strong>, and <strong>Spear Phishing</strong>, each brought to life through unique animations, effects, and gameplay mechanics.
+          </p>
+          <p>
+            Whether you're launching attacks, defending systems, investigating incidents, or restoring services, every move is designed to be both visually exciting and rooted in real technology.
+          </p>
+        </div>
+        <figure class="media-panel">
+          <img src="images/action_cysec_firewalled_move.png" alt="Firewalled defensive move effect in System Strike">
+        </figure>
+      </div>
+    </section>
 
-  <h3 class="section-subtitle">Play from 30 Unique Characters</h3>
+    <section class="section final-section" id="finishers" aria-labelledby="finishers-title">
+      <div class="section-heading">
+        <p class="eyebrow">End state</p>
+        <h2 id="finishers-title">Finishers</h2>
+      </div>
 
-<div class="character-grid">
-    
- <div class="character-card">
-  <h3>Network Infrastructure</h3>
-  <img src="images/ss_network_infastructure.png" alt="Network Infrastructure Character">
-  
- </div>
+      <div class="feature-layout finishers">
+        <figure class="media-panel">
+          <img src="images/finisher_key_rotation.png" alt="Key Rotation finisher in System Strike">
+        </figure>
+        <div class="failure-callout">
+          <p>Every great fighting game needs a memorable finisher, and <strong>System Strike</strong> is no different. When a fighter's <strong>System Integrity</strong> reaches zero, the battle ends in:</p>
+          <strong>SYSTEM FAILURE.</strong>
+        </div>
+        <figure class="media-panel">
+          <img src="images/action_cloud_recovery.png" alt="Cloud Recovery finisher in System Strike">
+        </figure>
+      </div>
+    </section>
+  </main>
 
- <div class="character-card">
-   <h3>The Threat Mapper</h3>
-  <img src="images/ss_mapping.png" alt="Threat Mapper Character">
- 
- </div>
-
- <div class="character-card">
-   <h3>Containment</h3>
-  <img src="images/ss_containment.png" alt="Containment Character">
- 
- </div>
-
- <div class="character-card">
-  <h3>Field Technician</h3>
-  <img src="images/ss_field_tech.png" alt="Field Technician Character">
-  
- </div>
-
-</div>
-  
-</section>
-
-<div class="divider"></div>
-  
-<section id="moves">
-  <h2>MOVES</h2>
-
-  <img class="feature-image" src="images/action_phishing_spearphishing_move.png" alt="Spear Phishing Move">
-
-  <p>Every move in <b>System Strike</b> transforms real-world concepts into fast-paced combat. Play as <b>Phishing</b> and unleash attacks such as <b>Typosquatting</b>, <b>Whaling</b>, and <b>Spear Phishing</b>, each brought to life through unique animations, effects, and gameplay mechanics. Whether you're launching attacks, defending systems, investigating incidents, or restoring services, every move is designed to be both visually exciting and rooted in real technology.</p>
-
-  <img class="feature-image" src="images/action_cysec_firewalled_move.png" alt="Firewalled Move">
-  
-</section>
-
-<div class="divider"></div>
-  
-<section id="finishers">
-  <h2>FINISHERS</h2>
-
-  <img class="feature-image" src="images/finisher_key_rotation.png" alt="Key Rotation Finisher">
-
-  <p>Every great fighting game needs a memorable finisher, and <b>System Strike</b> is no different. When a fighter’s <b>System Integrity</b> reaches zero, the battle ends in:</p>
-
-<p style="text-align: center;"><b>SYSTEM FAILURE.</b></p>
-
-<img class="feature-image" src="images/action_cloud_recovery.png" alt="Cloud Recovery Finisher">
-
-</section>
-
-<footer>
- 
-  <img class="logo" src="images/sys_strike_logo.png" alt="System Strike Logo">
-  
-  <p>© 2026 System Strike DJC</p>
-</footer>
-
+  <footer class="site-footer">
+    <img src="images/sys_strike_logo.png" alt="System Strike logo">
+    <p>&copy; 2026 System Strike DJC</p>
+  </footer>
 </body>
 </html>
