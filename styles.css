@@ -119,48 +119,45 @@ h3,
 }
 
 .hero {
-  display: grid;
-  min-height: calc(100svh - 56px);
-  place-items: end center;
   position: relative;
-}
-
-.hero {
   border-bottom: 1px solid var(--line);
-  position: relative;
+  overflow: hidden;
 }
 
 .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background: linear-gradient(
     to bottom,
-    transparent 48%,
-    rgba(6, 9, 15, 0.62) 74%,
+    transparent 45%,
+    rgba(6, 9, 15, 0.62) 72%,
     var(--bg) 100%
   );
-  content: "";
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
 }
 
-.hero-image {
+.hero-image,
+.hero-banner {
+  display: block;
+  width: 100%;
   aspect-ratio: 1774 / 887;
   object-fit: cover;
   object-position: center;
-  width: 100%;
 }
 
 .hero-copy {
-  bottom: clamp(8px, 2.8vw, 34px);
-  left: 50%;
-  margin: 0 auto;
-  max-width: 980px;
-  padding: 0 clamp(20px, 5vw, 56px);
   position: absolute;
+  left: 50%;
+  bottom: clamp(-18px, 1.2vw, 16px);
+  z-index: 1;
+  width: min(100%, 1080px);
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 56px);
   text-align: center;
   transform: translateX(-50%);
-  width: min(100%, 1080px);
-  z-index: 1;
 }
 
 h1,
