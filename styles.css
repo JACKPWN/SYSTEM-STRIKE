@@ -155,7 +155,7 @@ h3,
   width: min(100%, 1080px);
   max-width: 980px;
   margin: 0 auto;
-  padding: clamp(34px, 6vw, 76px) clamp(20px, 5vw, 56px) clamp(54px, 8vw, 110px);
+  padding: clamp(90px, 10vw, 150px) clamp(20px, 5vw, 56px) clamp(54px, 8vw, 110px);
   text-align: center;
   transform: none;
 }
@@ -463,11 +463,23 @@ h3 {
     padding: 7px 8px;
   }
 
+ .hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1080px);
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(96px, 10vw, 160px) clamp(20px, 5vw, 56px) clamp(54px, 8vw, 110px);
+  text-align: center;
+  transform: none;
+}
+
   .hero-copy p,
   .section-heading,
   .failure-callout {
     text-align: left;
   }
+}
 
   .hero::after {
     background: linear-gradient(
