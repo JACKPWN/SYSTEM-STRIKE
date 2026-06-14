@@ -123,7 +123,6 @@ h3,
   border-bottom: 1px solid var(--line);
   overflow: hidden;
   background: var(--bg);
-  padding-bottom: clamp(120px, 16vw, 220px);
 }
 
 .hero::after {
@@ -134,32 +133,31 @@ h3,
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    transparent 45%,
-    rgba(6, 9, 15, 0.62) 72%,
+    transparent 42%,
+    rgba(6, 9, 15, 0.55) 72%,
     var(--bg) 100%
   );
 }
 
-.hero-image,
 .hero-banner {
   display: block;
   width: 100%;
   aspect-ratio: 1774 / 887;
   object-fit: cover;
   object-position: center;
+  position: relative;
+  z-index: 0;
 }
 
 .hero-copy {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(28px, 5vw, 72px);
+  position: relative;
   z-index: 1;
   width: min(100%, 1080px);
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 56px);
+  padding: clamp(34px, 6vw, 76px) clamp(20px, 5vw, 56px) clamp(54px, 8vw, 110px);
   text-align: center;
-  transform: translateX(-50%);
+  transform: none;
 }
 
 h1,
@@ -432,24 +430,15 @@ h3 {
   margin: 0;
 }
 
-@media (max-width: 920px) {
-  .top-nav {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 12px;
+@media (max-width: 640px) {
+  .hero-copy {
+    padding: 32px 18px 58px;
+    text-align: left;
   }
 
   .nav-links {
     max-width: 100%;
     width: 100%;
-  }
-
-  .hero {
-    min-height: 760px;
-  }
-
-  .hero-copy {
-    padding-top: 380px;
   }
 
   .meter-grid,
@@ -474,15 +463,6 @@ h3 {
     padding: 7px 8px;
   }
 
-  .hero {
-    min-height: 690px;
-  }
-
-  .hero-copy {
-    padding: 350px 18px 42px;
-    bottom: 18px;
-  }
-
   .hero-copy p,
   .section-heading,
   .failure-callout {
@@ -490,13 +470,13 @@ h3 {
   }
 
   .hero::after {
-  background: linear-gradient(
-    to bottom,
-    transparent 34%,
-    rgba(6, 9, 15, 0.72) 66%,
-    var(--bg) 100%
-  );
-}
+    background: linear-gradient(
+      to bottom,
+      transparent 34%,
+      rgba(6, 9, 15, 0.72) 66%,
+      var(--bg) 100%
+    );
+  }
 
   .section-card {
     margin-inline: 14px;
