@@ -122,6 +122,8 @@ h3,
   position: relative;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+  background: var(--bg);
+  padding-bottom: clamp(120px, 16vw, 220px);
 }
 
 .hero::after {
@@ -150,7 +152,7 @@ h3,
 .hero-copy {
   position: absolute;
   left: 50%;
-  bottom: clamp(-42px, -1vw, -12px);
+  bottom: clamp(28px, 5vw, 72px);
   z-index: 1;
   width: min(100%, 1080px);
   max-width: 980px;
