@@ -13,7 +13,7 @@
 <body>
   <header class="site-header">
     <nav class="top-nav" aria-label="Primary navigation">
-      <a class="brand-mark" href="#top" aria-label="System Strike home">SYSTEM STRIKE</a>
+     <a class="brand-mark" href="./" aria-label="System Strike home">SYSTEM STRIKE</a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#characters">Characters</a>
@@ -28,7 +28,7 @@
         <p class="eyebrow">Real tech rendered as combat</p>
         <h1 id="hero-title">The IT &amp; Cybersecurity Fighting Game Universe</h1>
         <p>
-          Learning IT and cybersecurity can be a battle. System Strike turns real-world technology concepts into a fighting RPG where defenders, attackers, systems, and threats become playable characters. Created by Dom Calvello, the universe blends real-world technology with arcade-style combat, creating a visually immersive game world with an educational core.
+          Learning IT and cybersecurity can be a battle. System Strike turns real-world technology concepts into a fighting RPG where defenders, attackers, systems, and threats become playable characters. Created by Dom Calvello, the universe blends real-world technology with arcade-style combat, creating a visually immersive game world with an educational&nbsp;core.
         </p>
       </div>
     </section>
@@ -172,5 +172,13 @@
     <img src="images/sys_strike_logo.png" alt="System Strike logo">
     <p>&copy; 2026 System Strike DJC</p>
   </footer>
+  <script>
+  if (window.location.hash === "#about") {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+    window.addEventListener("load", function () {
+      window.scrollTo(0, 0);
+    });
+  }
+</script>
 </body>
 </html>
