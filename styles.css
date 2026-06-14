@@ -125,8 +125,18 @@ h3,
   position: relative;
 }
 
+.hero {
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
 .hero::after {
-  background: linear-gradient(to bottom, transparent 10%, rgba(6, 9, 15, 0.12) 42%, var(--bg) 98%);
+  background: linear-gradient(
+    to bottom,
+    transparent 48%,
+    rgba(6, 9, 15, 0.62) 74%,
+    var(--bg) 100%
+  );
   content: "";
   inset: 0;
   pointer-events: none;
@@ -134,19 +144,22 @@ h3,
 }
 
 .hero-image {
-  height: 100%;
-  inset: 0;
+  aspect-ratio: 1774 / 887;
   object-fit: cover;
-  position: absolute;
+  object-position: center;
   width: 100%;
 }
 
 .hero-copy {
+  bottom: clamp(8px, 2.8vw, 34px);
+  left: 50%;
   margin: 0 auto;
   max-width: 980px;
-  padding: clamp(260px, 48vh, 520px) clamp(20px, 5vw, 56px) clamp(42px, 9vw, 92px);
-  position: relative;
+  padding: 0 clamp(20px, 5vw, 56px);
+  position: absolute;
   text-align: center;
+  transform: translateX(-50%);
+  width: min(100%, 1080px);
   z-index: 1;
 }
 
@@ -468,6 +481,7 @@ h3 {
 
   .hero-copy {
     padding: 350px 18px 42px;
+    bottom: 18px;
   }
 
   .hero-copy p,
@@ -475,6 +489,15 @@ h3 {
   .failure-callout {
     text-align: left;
   }
+
+  .hero::after {
+  background: linear-gradient(
+    to bottom,
+    transparent 34%,
+    rgba(6, 9, 15, 0.72) 66%,
+    var(--bg) 100%
+  );
+}
 
   .section-card {
     margin-inline: 14px;
