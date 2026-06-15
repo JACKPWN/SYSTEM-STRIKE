@@ -4,52 +4,811 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="System Strike is an IT and cybersecurity fighting game universe where real-world systems, defenders, attackers, and threats become playable fighters.">
+
+  <meta property="og:title" content="System Strike">
+  <meta property="og:description" content="An IT and cybersecurity fighting game universe where real-world systems, defenders, attackers, and threats become playable fighters.">
+  <meta property="og:image" content="https://jackpwn.github.io/SYSTEM-STRIKE/images/ss_banner.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jackpwn.github.io/SYSTEM-STRIKE/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
   <title>SYSTEM STRIKE</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #06090f;
+      --panel: #0d141d;
+      --line: #243344;
+      --text: #f4f8ff;
+      --muted: #aebbd0;
+      --cyan: #00d9ff;
+      --red: #ff334e;
+      --red-soft: rgba(255, 51, 78, 0.18);
+      --green: #42ff91;
+      --gold: #ffd35a;
+      --purple: #b66cff;
+      --purple-soft: rgba(182, 108, 255, 0.18);
+      --max: 1160px;
+      --radius: 10px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(rgba(0, 217, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 50% 0%, rgba(0, 217, 255, 0.11), transparent 32rem),
+        var(--bg);
+      background-size: 42px 42px, 42px 42px, auto, auto;
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .top-nav {
+      align-items: center;
+      background: rgba(7, 11, 17, 0.88);
+      border-bottom: 1px solid rgba(0, 217, 255, 0.24);
+      backdrop-filter: blur(14px);
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
+      padding: 14px clamp(18px, 4vw, 44px);
+    }
+
+    .brand-mark,
+    .nav-links a,
+    h1,
+    h2,
+    h3,
+    .eyebrow,
+    .about-label,
+    .purpose-label,
+    .failure-callout > strong,
+    .final-pitch strong:first-child {
+      font-family: "Orbitron", system-ui, sans-serif;
+    }
+
+    .brand-mark {
+      color: var(--cyan);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .nav-links a {
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 8px 11px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      border-color: rgba(0, 217, 255, 0.5);
+      color: var(--text);
+      outline: none;
+    }
+
+    .hero {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        transparent 42%,
+        rgba(6, 9, 15, 0.72) 76%,
+        var(--bg) 100%
+      );
+    }
+
+    .hero-banner {
+      width: 100%;
+      aspect-ratio: 1774 / 887;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-copy {
+      width: min(100%, 1080px);
+      max-width: 980px;
+      margin: clamp(72px, 8vw, 125px) auto 0;
+      padding: 0 clamp(20px, 5vw, 56px) clamp(54px, 8vw, 110px);
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 6vw, 5.6rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 0.98;
+      margin-bottom: 22px;
+      text-wrap: balance;
+    }
+
+    h2 {
+      color: var(--text);
+      font-size: clamp(1.9rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1.05;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: 1.02rem;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero-copy p,
+    .section-intro,
+    .closing-copy,
+    .feature-copy,
+    .failure-callout p {
+      color: var(--muted);
+    }
+
+    .hero-copy > p:last-child {
+      font-size: clamp(1rem, 2vw, 1.24rem);
+      margin: 0 auto;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .section {
+      margin: 0 auto;
+      max-width: var(--max);
+      padding: clamp(58px, 9vw, 112px) clamp(18px, 4vw, 36px);
+    }
+
+    .section-card {
+      background: linear-gradient(135deg, rgba(18, 27, 39, 0.94), rgba(10, 16, 24, 0.94));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-top: clamp(28px, 6vw, 64px);
+      padding: clamp(30px, 6vw, 64px);
+    }
+
+    .section-heading {
+      margin: 0 auto 34px;
+      max-width: 790px;
+      text-align: center;
+    }
+
+    .section-heading.align-left {
+      margin-left: 0;
+      text-align: left;
+    }
+
+    /* ABOUT SECTION: intentionally uses new class names so old text-stack CSS cannot interfere. */
+
+    .about-section {
+      max-width: 1280px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(24px, 4vw, 48px);
+      margin: 0 auto;
+      max-width: 1080px;
+    }
+
+    .about-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      background:
+        linear-gradient(135deg, rgba(0, 217, 255, 0.16), transparent 34%),
+        linear-gradient(180deg, rgba(18, 27, 39, 0.98), rgba(5, 10, 17, 0.98));
+      border: 1px solid rgba(0, 217, 255, 0.42);
+      border-left: 6px solid var(--cyan);
+      border-radius: 14px;
+      box-shadow:
+        inset 0 0 42px rgba(0, 217, 255, 0.07),
+        0 22px 60px rgba(0, 0, 0, 0.32);
+      padding: clamp(28px, 3vw, 42px);
+    }
+
+    .about-card::before {
+      content: attr(data-index);
+      position: absolute;
+      right: 18px;
+      top: 8px;
+      color: rgba(0, 217, 255, 0.11);
+      font-family: "Orbitron", system-ui, sans-serif;
+      font-size: clamp(4.4rem, 9vw, 8rem);
+      font-weight: 800;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .about-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 32%),
+        radial-gradient(circle at top left, rgba(0, 217, 255, 0.22), transparent 18rem);
+    }
+
+    .about-label {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      margin: 0 0 18px;
+      text-transform: uppercase;
+    }
+
+    .about-label::before {
+      content: "";
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--cyan);
+      box-shadow: 0 0 14px rgba(0, 217, 255, 0.75);
+    }
+
+    .about-card p:not(.about-label) {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.35vw, 1.16rem);
+      line-height: 1.78;
+      margin: 0;
+    }
+
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(20px, 3vw, 34px);
+      margin: 0 auto;
+      max-width: 1080px;
+    }
+
+    .purpose-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(0, 217, 255, 0.10), transparent 38%),
+        linear-gradient(180deg, rgba(18, 27, 39, 0.98), rgba(5, 10, 17, 0.98));
+      border: 1px solid rgba(0, 217, 255, 0.32);
+      border-left: 5px solid var(--cyan);
+      border-radius: 12px;
+      box-shadow:
+        inset 0 0 34px rgba(0, 217, 255, 0.055),
+        0 18px 46px rgba(0, 0, 0, 0.24);
+      padding: clamp(24px, 3vw, 34px);
+    }
+
+    .purpose-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent 32%),
+        radial-gradient(circle at top left, rgba(0, 217, 255, 0.14), transparent 15rem);
+    }
+
+    .purpose-label {
+      position: relative;
+      z-index: 1;
+      display: block;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      margin: 0 0 14px;
+      text-transform: uppercase;
+    }
+
+    .purpose-card p:not(.purpose-label) {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+      line-height: 1.72;
+      margin: 0;
+    }
+
+    .split-section {
+      display: grid;
+      gap: 28px;
+    }
+
+    .media-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .media-panel img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .media-panel.wide img {
+      object-fit: contain;
+    }
+
+    .meter-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .defender {
+      --card-color: var(--cyan);
+      --card-glow: rgba(0, 217, 255, 0.16);
+      --card-border: rgba(0, 217, 255, 0.48);
+    }
+
+    .attacker {
+      --card-color: var(--red);
+      --card-glow: rgba(255, 51, 78, 0.16);
+      --card-border: rgba(255, 51, 78, 0.58);
+    }
+
+    .system {
+      --card-color: var(--green);
+      --card-glow: rgba(66, 255, 145, 0.16);
+      --card-border: rgba(66, 255, 145, 0.46);
+    }
+
+    .support,
+    .containment {
+      --card-color: var(--gold);
+      --card-glow: rgba(255, 211, 90, 0.16);
+      --card-border: rgba(255, 211, 90, 0.52);
+    }
+
+    .intelligence {
+      --card-color: var(--purple);
+      --card-glow: rgba(182, 108, 255, 0.18);
+      --card-border: rgba(182, 108, 255, 0.58);
+    }
+
+    .field-tech {
+      --card-color: var(--green);
+      --card-glow: rgba(66, 255, 145, 0.16);
+      --card-border: rgba(66, 255, 145, 0.52);
+    }
+
+    .info-card,
+    .character-card {
+      background: linear-gradient(180deg, rgba(18, 27, 39, 0.96), rgba(9, 14, 21, 0.96));
+      border: 1px solid var(--card-border, var(--line));
+      border-radius: var(--radius);
+    }
+
+    .info-card {
+      position: relative;
+      overflow: hidden;
+      border-left: 6px solid var(--card-color, var(--cyan));
+      background:
+        linear-gradient(135deg, var(--card-glow, rgba(0, 217, 255, 0.14)), transparent 38%),
+        linear-gradient(180deg, rgba(18, 27, 39, 0.98), rgba(5, 10, 17, 0.98));
+      box-shadow:
+        inset 0 0 34px var(--card-glow, rgba(0, 217, 255, 0.06)),
+        0 18px 46px rgba(0, 0, 0, 0.24);
+      padding: 24px 24px 24px 28px;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent 32%),
+        radial-gradient(circle at top left, var(--card-glow, rgba(0, 217, 255, 0.18)), transparent 15rem);
+    }
+
+    .info-card h3,
+    .character-card h3 {
+      color: var(--card-color, var(--cyan));
+    }
+
+    .info-card h3,
+    .info-card p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .character-card {
+      box-shadow: inset 0 0 28px var(--card-glow, rgba(0, 217, 255, 0.04));
+    }
+
+    .info-card p,
+    .character-card p,
+    .feature-copy p,
+    .closing-copy,
+    .section-intro {
+      margin-bottom: 0;
+    }
+
+    .closing-copy {
+      border-left: 3px solid var(--cyan);
+      max-width: 900px;
+      padding-left: 18px;
+    }
+
+    .section-intro {
+      font-size: 1.1rem;
+      margin: 16px auto 0;
+      max-width: 650px;
+    }
+
+    .character-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .character-card {
+      overflow: hidden;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .character-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+    }
+
+    .character-card img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: top center;
+      width: 100%;
+    }
+
+    .character-card div {
+      padding: 17px;
+    }
+
+    .faction-label {
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .feature-layout {
+      display: grid;
+      gap: 24px;
+    }
+
+    .feature-copy {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .final-section {
+      padding-bottom: 72px;
+    }
+
+    .finisher-copy {
+      display: grid;
+      gap: 22px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .finisher-copy p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 760px;
+    }
+
+    .failure-callout {
+      align-items: center;
+      background: linear-gradient(135deg, var(--red-soft), rgba(18, 27, 39, 0.94));
+      border: 1px solid rgba(255, 51, 78, 0.7);
+      border-left: 6px solid var(--red);
+      border-radius: var(--radius);
+      box-shadow:
+        inset 0 0 34px rgba(255, 51, 78, 0.08),
+        0 20px 52px rgba(0, 0, 0, 0.28);
+      display: inline-grid;
+      justify-items: center;
+      padding: clamp(18px, 4vw, 34px) clamp(22px, 5vw, 54px);
+      text-align: center;
+    }
+
+    .failure-callout > strong {
+      color: var(--red);
+      font-size: clamp(2rem, 7vw, 5.4rem);
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      text-shadow: 0 0 24px rgba(255, 51, 78, 0.42);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 38px 20px 44px;
+      text-align: center;
+    }
+
+    .site-footer img {
+      filter: invert(1);
+      margin: 0 auto 18px;
+      max-width: min(280px, 70vw);
+    }
+
+    .site-footer p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    @media (max-width: 920px) {
+      .top-nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .about-grid,
+      .purpose-grid,
+      .meter-grid,
+      .character-grid,
+      .feature-copy {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .top-nav {
+        padding-inline: 14px;
+      }
+
+      .nav-links a {
+        font-size: 0.68rem;
+        padding: 7px 8px;
+      }
+
+      .hero-copy {
+        margin-top: 54px;
+        padding: 0 18px 58px;
+        text-align: left;
+      }
+
+      .hero-copy p,
+      .section-heading,
+      .finisher-copy {
+        text-align: left;
+      }
+
+      .finisher-copy {
+        justify-items: start;
+      }
+
+      .final-pitch {
+        text-align: left;
+      }
+
+      .hero-media::after {
+        background: linear-gradient(
+          to bottom,
+          transparent 34%,
+          rgba(6, 9, 15, 0.78) 72%,
+          var(--bg) 100%
+        );
+      }
+
+      .section-card {
+        margin-inline: 14px;
+      }
+
+      .about-grid,
+      .purpose-grid,
+      .meter-grid,
+      .character-grid,
+      .feature-copy {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        min-height: auto;
+      }
+
+      .character-card img {
+        aspect-ratio: 5 / 6;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-  <nav class="top-nav" aria-label="Primary navigation">
-    <a class="brand-mark" href="./" aria-label="System Strike home">SYSTEM STRIKE</a>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a class="brand-mark" href="./" aria-label="System Strike home">SYSTEM STRIKE</a>
 
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#characters">Characters</a>
-      <a href="#moves">Moves</a>
-      <a href="#finishers">Finishers</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#why">Why</a>
+        <a href="#characters">Characters</a>
+        <a href="#moves">Moves</a>
+        <a href="#finishers">Finishers</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-media">
+      <img class="hero-banner" src="images/ss_banner.png" alt="System Strike Banner">
     </div>
-  </nav>
-</header>
 
-<section class="hero" id="top">
-  <img class="hero-banner" src="images/ss_banner.png" alt="System Strike Banner">
+    <div class="hero-copy">
+      <p class="eyebrow">Real tech rendered as combat</p>
+      <h1 id="hero-title">The IT &amp; Cybersecurity Fighting Game Universe</h1>
 
-  <div class="hero-copy">
-    <p class="eyebrow">Real tech rendered as combat</p>
-    <h1 id="hero-title">The IT &amp; Cybersecurity Fighting Game Universe</h1>
-    <p>
-      Learning IT and cybersecurity can be a battle. System Strike turns real-world technology concepts into a fighting RPG where defenders, attackers, systems, and threats become playable characters. Created by Dom Calvello, the universe blends real-world technology with arcade-style combat, creating a visually immersive game world with an educational&nbsp;core.
-    </p>
-  </div>
-</section>
+      <p>
+        Learning IT and cybersecurity can be a battle. <strong>System Strike</strong> turns real-world technology concepts into a fighting RPG where defenders, attackers, systems, and threats become playable characters. Created by Dom Calvello, the universe blends real-world technology with arcade-style combat, creating a visually immersive game world with an educational&nbsp;core.
+      </p>
+    </div>
+  </section>
 
   <main>
-    <section class="section section-card" id="about" aria-labelledby="about-title">
+    <section class="section section-card about-section" id="about" aria-labelledby="about-title">
       <div class="section-heading">
         <p class="eyebrow">Defenders, attackers, systems, threats</p>
         <h2 id="about-title">About</h2>
       </div>
 
-      <div class="text-stack">
-        <p>
-          System Strike brings the digital world to life by turning everyday IT and cybersecurity problems into character-driven battles. On one side are the defenders: support teams, network systems, security tools, access controls, and analysts working to keep systems stable. On the other side are the attackers: malware, phishing, botnets, stolen credentials, insider threats, and system failures trying to break through.
+      <div class="about-grid">
+        <article class="about-card" data-index="01">
+          <p class="about-label">World Concept</p>
+          <p>
+            <strong>System Strike</strong> brings the digital world to life by turning everyday IT and cybersecurity problems into character-driven battles. On one side are the defenders: support teams, network systems, security tools, access controls, and analysts working to keep systems stable. On the other side are the attackers: malware, phishing, botnets, stolen credentials, insider threats, and system failures trying to break through.
+          </p>
+        </article>
+
+        <article class="about-card" data-index="02">
+          <p class="about-label">Gameplay Logic</p>
+          <p>
+            Each fighter is built around how their real-world counterpart behaves. Every move, HUD element, warning banner, and attack effect is designed to show players how systems fail, how attackers strike, and how defenders respond.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-card" id="why" aria-labelledby="why-title">
+      <div class="section-heading">
+        <p class="eyebrow">Why it exists</p>
+        <h2 id="why-title">Built For Memory</h2>
+        <p class="section-intro">
+          <strong>System Strike</strong> makes technical concepts easier to remember by turning them into characters, attacks, counters, failures, and recoveries.
         </p>
-        <p>
-          Each fighter is built around how their real-world counterpart behaves. Every move, HUD element, warning banner, and attack effect is designed to show players how systems fail, how attackers strike, and how defenders respond.
-        </p>
+      </div>
+
+      <div class="purpose-grid">
+        <article class="purpose-card">
+          <p class="purpose-label">Visual Learning</p>
+          <p>
+            Cybersecurity terms become memorable because players see them act, fail, defend, and recover inside the game world.
+          </p>
+        </article>
+
+        <article class="purpose-card">
+          <p class="purpose-label">Arcade Logic</p>
+          <p>
+            Moves are not random effects. They map to real technology behaviors, from phishing lures to endpoint isolation and recovery states.
+          </p>
+        </article>
+
+        <article class="purpose-card">
+          <p class="purpose-label">Expandable IP</p>
+          <p>
+            The universe can grow into characters, stages, labs, lessons, animations, collectibles, and a full game design framework.
+          </p>
+        </article>
       </div>
     </section>
 
@@ -68,10 +827,12 @@
           <h3>System Integrity</h3>
           <p>Every fighter begins each match with <strong>100% System Integrity</strong>, representing their overall ability to stay operational. As fighters take damage, their <strong>System Integrity</strong> degrades. When it reaches zero, the character enters <strong>SYSTEM FAILURE</strong>.</p>
         </article>
+
         <article class="info-card attacker">
           <h3>Data</h3>
           <p><strong>Data</strong> powers a fighter's strongest abilities. Advanced attacks consume more Data, but deal heavier damage to the opponent's <strong>System Integrity</strong>.</p>
         </article>
+
         <article class="info-card system">
           <h3>Connection State</h3>
           <p><strong>Connection State</strong> gives fighters temporary defensive advantages, helping protect their <strong>System Integrity</strong> from incoming damage.</p>
@@ -79,7 +840,7 @@
       </div>
 
       <p class="closing-copy">
-        Together, System Integrity, Data, and Connection State form the core of System Strike’s gameplay. Each fighter uses these resources differently, creating unique mechanics, matchups, and move combinations based on their role in the digital world.
+        Together, <strong>System Integrity</strong>, <strong>Data</strong>, and <strong>Connection State</strong> form the core of <strong>System Strike</strong>’s gameplay. Each fighter uses these resources differently, creating unique mechanics, matchups, and move combinations based on their role in the digital world.
       </p>
     </section>
 
@@ -99,7 +860,7 @@
           </div>
         </article>
 
-        <article class="character-card system">
+        <article class="character-card intelligence">
           <img src="images/ss_mapping.png" alt="The Threat Mapper character portrait">
           <div>
             <p class="faction-label">Intel faction</p>
@@ -107,7 +868,7 @@
           </div>
         </article>
 
-        <article class="character-card defender">
+        <article class="character-card containment">
           <img src="images/ss_containment.png" alt="Containment character portrait">
           <div>
             <p class="faction-label">Response faction</p>
@@ -115,7 +876,7 @@
           </div>
         </article>
 
-        <article class="character-card support">
+        <article class="character-card field-tech">
           <img src="images/ss_field_tech.png" alt="Field Technician character portrait">
           <div>
             <p class="faction-label">Support faction</p>
@@ -135,14 +896,17 @@
         <figure class="media-panel">
           <img src="images/action_phishing_spearphishing_move.png" alt="Spear Phishing move effect in System Strike">
         </figure>
+
         <div class="feature-copy">
           <p>
             Every move in <strong>System Strike</strong> transforms real-world concepts into fast-paced combat. Play as <strong>Phishing</strong> and unleash attacks such as <strong>Typosquatting</strong>, <strong>Whaling</strong>, and <strong>Spear Phishing</strong>, each brought to life through unique animations, effects, and gameplay mechanics.
           </p>
+
           <p>
             Whether you're launching attacks, defending systems, investigating incidents, or restoring services, every move is designed to be both visually exciting and rooted in real technology.
           </p>
         </div>
+
         <figure class="media-panel">
           <img src="images/action_cysec_firewalled_move.png" alt="Firewalled defensive move effect in System Strike">
         </figure>
@@ -159,28 +923,35 @@
         <figure class="media-panel">
           <img src="images/finisher_key_rotation.png" alt="Key Rotation finisher in System Strike">
         </figure>
-        <div class="failure-callout">
+
+        <div class="finisher-copy">
           <p>Every great fighting game needs a memorable finisher, and <strong>System Strike</strong> is no different. When a fighter's <strong>System Integrity</strong> reaches zero, the battle ends in:</p>
-          <strong>SYSTEM FAILURE.</strong>
+
+          <div class="failure-callout">
+            <strong>SYSTEM FAILURE.</strong>
+          </div>
         </div>
+
         <figure class="media-panel">
           <img src="images/action_cloud_recovery.png" alt="Cloud Recovery finisher in System Strike">
         </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="final-pitch">
+        <strong>Original Cybersecurity Game Universe</strong>
+        <p>
+          <strong>System Strike</strong> is an original IT and cybersecurity fighting game universe by Dom Calvello — built as a visual learning system, character roster, combat framework, and expandable IP concept for games, education, and cybersecurity storytelling.
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <img src="images/sys_strike_logo.png" alt="System Strike logo">
-    <p>&copy; 2026 System Strike DJC</p>
-  </footer>
-  <script>
-  if (window.location.hash === "#about") {
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-    window.addEventListener("load", function () {
-      window.scrollTo(0, 0);
-    });
-  }
-</script>
+    <p><strong>System Strike</strong> is an original IT and cybersecurity fighting game universe by Dom Calvello.</p>
+    <p>&copy; 2026 DJC. All rights reserved.</p>
+</footer>
 </body>
 </html>
